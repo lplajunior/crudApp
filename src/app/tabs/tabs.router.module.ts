@@ -8,45 +8,55 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'lista',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../lista/lista.module').then(m => m.ListaPageModule)
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'adiciona',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+              import('../adiciona/adiciona.module').then(m => m.AdicionaPageModule)
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'info',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+              import('../info/info.module').then(m => m.InfoPageModule)
+          }
+        ]
+      },
+      {
+        path: 'editar/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../adiciona/adiciona.module').then(m => m.AdicionaPageModule)
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/lista',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/lista',
     pathMatch: 'full'
   }
 ];

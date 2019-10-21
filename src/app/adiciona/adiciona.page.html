@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>formulario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+      <form [formGroup] = "produtoForm" (submit)="(editable) ? editProduto() : addProduto()">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-label position="stacked">Nome <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input formControlName="nm_produto" required type="text"></ion-input>
+          </ion-item>
+  
+          <ion-item>
+            <ion-label position="stacked">Quantidade <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input formControlName="qnt_produto" required min="0" type="number"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label position="stacked">Preço <ion-text color="danger">*</ion-text></ion-label>
+            <ion-input formControlName="preco_produto" required min="0" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Imagem <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input formControlName="img_produto" required type="text"></ion-input>
+          </ion-item>
+        </ion-list>
+        <div class="ion-padding">
+          <ion-button [disabled]="produtoForm.invalid" expand="block" type="submit" color="dark" class="ion-no-margin">Registrar</ion-button>
+        </div>
+      </form>
+    </ion-content>

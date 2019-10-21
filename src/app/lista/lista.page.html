@@ -1,0 +1,30 @@
+    <ion-header translucent>
+      <ion-toolbar>
+        <ion-title>Lista de Produtos</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content fullscreen>
+      <ion-list>
+        <ion-list-header>
+          Produtos recentes adicionados
+        </ion-list-header>
+
+        <ion-item *ngFor="let p of produtos">
+          <ion-avatar slot="start">
+            <img [src]="p.img_produto">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{p.nm_produto}}</h2>
+            <h3>{{p.qnt_produto}}</h3>
+            <p>R$ {{p.preco_produto}}</p>
+          </ion-label>
+          <ion-button (click)="editarProduto(p.id)" color="success" size="small">
+            editar
+          </ion-button>
+          <ion-button (click)="excluirProduto(p.id)" color="danger" size="small">
+            excluir
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
